@@ -17,7 +17,13 @@ public:
 
     void PutItem(const CO2EmissionsRecord&); // Adds the item to the list
     void PrintList();          // Print all elements of the list in a readable format
+    //sorting functions
     void SortByCO2EmissionsDescending();  // Sort the list by CO2 emissions in descending order
+    void SortByCO2EmissionsAscending();  // Sort the list by CO2 emissions in ascending order
+    void SortByYearDescending();  // Sort the list by year in descending order
+    void SortByYearAscending();  // Sort the list by year in ascending order
+    void SortByCountryDescending();  // Sort the list by country in descending order
+    void SortByCountryAscending();  // Sort the list by country in ascending order
 private:
     int length;                // Current number of items in the list
     CO2EmissionsRecord* ListItems; // Array of CO2EmissionsRecord
@@ -58,5 +64,41 @@ void ASListR::SortByCO2EmissionsDescending() {
         return a.CO2_emissions > b.CO2_emissions;  // Sort in descending order
     });
 }
+
+// Sort the list by CO2 emissions in ascending order
+void ASListR::SortByCO2EmissionsAscending() {
+    std::sort(ListItems, ListItems + length, [](const CO2EmissionsRecord& a, const CO2EmissionsRecord& b) {
+        return a.CO2_emissions < b.CO2_emissions;  // Sort in ascending order by CO2 emissions
+    });
+}
+
+// Sort the list by year in descending order
+void ASListR::SortByYearDescending() {
+    std::sort(ListItems, ListItems + length, [](const CO2EmissionsRecord& a, const CO2EmissionsRecord& b) {
+        return a.year > b.year;  // Sort in descending order by year
+    });
+}
+
+// Sort the list by year in ascending order
+void ASListR::SortByYearAscending() {
+    std::sort(ListItems, ListItems + length, [](const CO2EmissionsRecord& a, const CO2EmissionsRecord& b) {
+        return a.year < b.year;  // Sort in ascending order by year
+    });
+}
+
+// Sort the list by country in descending order
+void ASListR::SortByCountryDescending() {
+    std::sort(ListItems, ListItems + length, [](const CO2EmissionsRecord& a, const CO2EmissionsRecord& b) {
+        return a.country > b.country;  // Sort in descending order by country
+    });
+}
+
+// Sort the list by country in ascending order
+void ASListR::SortByCountryAscending() {
+    std::sort(ListItems, ListItems + length, [](const CO2EmissionsRecord& a, const CO2EmissionsRecord& b) {
+        return a.country < b.country;  // Compare alphabetically in ascending order
+    });
+}
+
 
 #endif
