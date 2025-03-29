@@ -54,8 +54,8 @@ void ASListR::PutItem(const CO2EmissionsRecord& record) {
 void ASListR::PrintList() {
     for (int i = 0; i < length; i++) {
         std::cout << "Country: " << ListItems[i].country 
-                  << ", Year: " << ListItems[i].year 
-                  << ", CO2 Emissions: " << ListItems[i].CO2_emissions << std::endl;
+                  << "\t\t Year: " << ListItems[i].year 
+                  << "\t\t CO2 Emissions: " << ListItems[i].CO2_emissions << std::endl;
     }
 }
 // Sort the list by CO2 emissions in descending order
